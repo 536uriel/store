@@ -1,0 +1,43 @@
+body{
+    font-size: large;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    background-color: rgb(45, 119, 231);
+    color: aliceblue;
+}
+
+.cart h1{
+    text-align: center;
+    color: rgb(10, 64, 77);
+}
+
+.cart-container{
+    display: block;
+}
+
+.cart-container div{
+    padding: 30px;
+    background-color: rgb(10, 64, 77);
+    border: 1px solid rgb(233, 229, 244);
+
+}
+
+.cart-ul li{
+    list-style: none;
+    color: rgb(162, 209, 221);
+    margin: 16px;
+}
+
+.shop-container ul{
+    list-style: none;
+    background-color: lightblue;
+}
