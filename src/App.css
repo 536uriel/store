@@ -1,10 +1,20 @@
 body{
     font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.App{
+    height: 100vh;
 }
 
 a{
     text-decoration: none;
     color: inherit;
+}
+
+.nav{
+    /* position: fixed;
+    width: 100%; */
 }
 
 .nav ul{
@@ -13,7 +23,35 @@ a{
     gap: 20px;
     background-color: rgb(45, 119, 231);
     color: aliceblue;
+    margin: 0;
+    padding: 10px;
 }
+
+.nav ul li:hover{
+    color: blanchedalmond;
+}
+
+.login-container{
+    width: 50%;
+    margin: auto;
+    background-color: rgb(115, 167, 216);
+    text-align: center;
+    color: aliceblue;
+
+}
+
+.login-container input{
+    padding: 10px 20%;
+    border-radius: 10px;
+}
+
+.submit-btn{
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgb(205, 225, 234);
+}
+
 
 .cart h1{
     text-align: center;

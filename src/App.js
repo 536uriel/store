@@ -19,12 +19,43 @@ function App() {
   const [cart,setCart] = useState([])
 
   useEffect(()=>{
-    fetch('http://localhost:1000/products',{
-      method:"GET"
-    }).then(res => res.json()).then((products) => {
-      setProducts(products)
-      console.log(products)
-    })
+    // fetch('http://localhost:1000/products',{
+    //   method:"GET"
+    // }).then(res => res.json()).then((products) => {
+    //   setProducts(products)
+    //   console.log(products)
+    // })
+
+    //for testing
+    setProducts([
+      {
+        _id:1,
+        name:"banana",
+        price:11
+        
+      },
+      {
+        _id:2,
+        name:"avocado",
+        price:11
+        
+      },
+      {
+        _id:3,
+        name:"apple",
+        price:11
+        
+      },
+      {
+        _id:4,
+        name:"orange",
+        price:11
+        
+      }
+    ])
+
+
+
   },[])
   
   return (
