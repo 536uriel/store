@@ -6,46 +6,46 @@ const MyProducts = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    // fetch('http://localhost:1000/cart')
-    // .then(res => res.json()).then(data => {
-    //   console.log(data)
-    //   setProducts(data)
+    fetch('http://localhost:1000/cart')
+    .then(res => res.json()).then(data => {
+      console.log(data)
+      setProducts(data)
 
-    // }).catch((err)=> {
-    //   console.log(err)
-    // })
+    }).catch((err)=> {
+      console.log(err)
+    })
 
     //for testing
-    setProducts([
-      {
-        amount: 2,
-        prod_id: {
-          name: "milk",
-          price: 20
-        }
-      },
-      {
-        amount: 1,
-        prod_id: {
-          name: "banana",
-          price: 20
-        }
-      },
-      {
-        amount: 5,
-        prod_id: {
-          name: "lemon",
-          price: 20
-        }
-      },
-      {
-        amount: 3,
-        prod_id: {
-          name: "avocado",
-          price: 20
-        }
-      }
-    ])
+    // setProducts([
+    //   {
+    //     amount: 2,
+    //     prod_id: {
+    //       name: "milk",
+    //       price: 20
+    //     }
+    //   },
+    //   {
+    //     amount: 1,
+    //     prod_id: {
+    //       name: "banana",
+    //       price: 20
+    //     }
+    //   },
+    //   {
+    //     amount: 5,
+    //     prod_id: {
+    //       name: "lemon",
+    //       price: 20
+    //     }
+    //   },
+    //   {
+    //     amount: 3,
+    //     prod_id: {
+    //       name: "avocado",
+    //       price: 20
+    //     }
+    //   }
+    // ])
 
 
   }, [])

@@ -1,7 +1,7 @@
 class Auth {
     constructor(){
         //need to change to false
-        localStorage.setItem('login',true)
+        localStorage.setItem('login',false)
     }
 
     login(){
@@ -13,7 +13,11 @@ class Auth {
     }
 
     isAuthenticated(){
-        return localStorage.getItem('login')
+        if(localStorage.getItem('login') == 'true'){
+            return true
+        }else{
+            return false
+        }
     }
 }
 

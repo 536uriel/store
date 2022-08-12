@@ -1,9 +1,14 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import auth from './conponents/auth';
 
 export const AuthGard = () => {
-    const location = useLocation();
+
+    if(auth.isAuthenticated()) {
+        console.log(true)
+        return  (<Outlet />) 
+    } else{
+        return (<Navigate to="/login" />)
+    } 
    
-    return auth.isAuthenticated() ? <Outlet /> : <Navigate to="/login" exact state={{from:location}} />
 }
 

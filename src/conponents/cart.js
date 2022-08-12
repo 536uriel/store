@@ -8,7 +8,13 @@ const Cart = (props) => {
         let prodsIds = [];
         if(props.cart.length > 0){
             props.cart.forEach(prod => {
-                prodsIds.push(prod._id)
+                if(prod.amount){
+                    for(let i = 0;i < prod.amount;i++){
+                        prodsIds.push(prod._id)
+                    }
+                }else{
+                    prodsIds.push(prod._id)
+                }
             });
 
             console.log(prodsIds)
@@ -30,13 +36,26 @@ const Cart = (props) => {
       
     }
 
+    function deleteItem(index){
+        props.cart.splice(index,1)
+        props.setCart([...props.cart])
+    }
+
     return (
 
         <div>
             {
 
-                props.cart.map(prod => (
-                    <div>{prod.name}</div>
+                props.cart.map((prod,index) => (
+                    <div>
+                        <ul>
+                           <li>{prod.name}</li>
+                           <li>{prod.price}</li>
+                           <li>amount: {(prod.hasOwnProperty("amount") ? prod.amount : 1)}</li>
+                           <button onClick={()=>{deleteItem(index)}}>remove item</button>
+                        </ul>
+                        
+                    </div>
                 ))}
             <button onClick={() => { buy() }}>buy</button>
         </div>

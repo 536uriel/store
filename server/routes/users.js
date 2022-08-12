@@ -23,31 +23,44 @@ router.post('/addToCart', checkAuthenticated, async (req, res) => {
         const user = await userModel.findById(req.user._id).populate('cart.prod_id')
         console.log(req.user._id)
 
-        let products = []
+        let productsInCart = []
 
         ids.forEach(id => {
             const product = user.cart.find(c => c.prod_id._id == id)
 
             if (product)
-                products.push(product)
+                productsInCart.push(product)
 
         });
 
-        if (products.length == 0) {
+        if (productsInCart.length == 0) {
 
             let cart = [];
 
-            ids.forEach(id => {
-                cart.push({
-                    prod_id: id,
-                    amount: 1
-                })
+
+           
+
+            ids.forEach((id,index) => {
+                //if its the first id
+                if(ids.indexOf(id) == index){
+                    cart.push({
+                        prod_id: id,
+                        amount: 1
+                    })
+                }else {
+                    cart.forEach((c,i) => {
+                        if(c.prod_id == id){
+                            cart[i].amount++
+                        }
+                    })
+                }
             })
+       
 
             await userModel.updateOne({ email: user.email }, {
                 $push: {
                     cart: {
-                       $each : cart
+                        $each: cart
                     }
                 }
             })
@@ -56,14 +69,14 @@ router.post('/addToCart', checkAuthenticated, async (req, res) => {
         }
 
         //todo: figure how to update in one shoot
-        for(let i=0;i<ids.length;i++){
+        for (let i = 0; i < ids.length; i++) {
             await userModel.updateOne(
-                { '_id': user._id, 'cart.prod_id': ids[i]},
-                { $inc: {  'cart.$.amount': 1 } }
+                { '_id': user._id, 'cart.prod_id': ids[i] },
+                { $inc: { 'cart.$.amount': 1 } }
             )
         }
-            
-        
+
+
         res.send(200)
 
     } catch (err) {
@@ -102,7 +115,7 @@ router.post('/login',
     }
 );
 
-router.get('/logout', (req, res) => {
+router.get('/logout', checkAuthenticated ,(req, res) => {
     req.logout(function (err) {
         if (err) { return res.send(err); }
         res.redirect('/');
