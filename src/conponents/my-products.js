@@ -13,41 +13,43 @@ const MyProducts = () => {
 
     }).catch((err)=> {
       console.log(err)
+      
+       //for testing
+    setProducts([
+      {
+        amount: 2,
+        prod_id: {
+          name: "test",
+          price: 20
+        }
+      },
+      {
+        amount: 1,
+        prod_id: {
+          name: "test",
+          price: 20
+        }
+      },
+      {
+        amount: 5,
+        prod_id: {
+          name: "test",
+          price: 20
+        }
+      },
+      {
+        amount: 3,
+        prod_id: {
+          name: "test",
+          price: 20
+        }
+      }
+    ])
+
+
     })
 
-    //for testing
-    // setProducts([
-    //   {
-    //     amount: 2,
-    //     prod_id: {
-    //       name: "milk",
-    //       price: 20
-    //     }
-    //   },
-    //   {
-    //     amount: 1,
-    //     prod_id: {
-    //       name: "banana",
-    //       price: 20
-    //     }
-    //   },
-    //   {
-    //     amount: 5,
-    //     prod_id: {
-    //       name: "lemon",
-    //       price: 20
-    //     }
-    //   },
-    //   {
-    //     amount: 3,
-    //     prod_id: {
-    //       name: "avocado",
-    //       price: 20
-    //     }
-    //   }
-    // ])
-
-
+   
   }, [])
 
 

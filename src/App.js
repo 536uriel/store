@@ -24,37 +24,39 @@ function App() {
       method:"GET"
     }).then(res => res.json()).then((products) => {
       setProducts(products)
-      console.log(products)
+    }).catch(err=>{
+      console.log(err)
+
+      //for testing
+    setProducts([
+      {
+        _id:1,
+        name:"test",
+        price:11
+        
+      },
+      {
+        _id:2,
+        name:"test",
+        price:11
+        
+      },
+      {
+        _id:3,
+        name:"test",
+        price:11
+        
+      },
+      {
+        _id:4,
+        name:"test",
+        price:11
+        
+      }
+    ])
+
+
     })
-
-    //for testing
-    // setProducts([
-    //   {
-    //     _id:1,
-    //     name:"banana",
-    //     price:11
-        
-    //   },
-    //   {
-    //     _id:2,
-    //     name:"avocado",
-    //     price:11
-        
-    //   },
-    //   {
-    //     _id:3,
-    //     name:"apple",
-    //     price:11
-        
-    //   },
-    //   {
-    //     _id:4,
-    //     name:"orange",
-    //     price:11
-        
-    //   }
-    // ])
-
 
 
   },[])

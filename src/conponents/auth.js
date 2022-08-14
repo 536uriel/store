@@ -1,7 +1,7 @@
 class Auth {
     constructor(){
         //need to change to false
-        localStorage.setItem('login',false)
+        localStorage.setItem('login',true)
     }
 
     login(){
